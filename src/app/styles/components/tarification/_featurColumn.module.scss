@@ -1,0 +1,100 @@
+@import "../../globals/colors";
+@import "../../globals/mixins";
+
+.featureColumn,
+.active {
+  z-index: 1;
+  @include flex-align;
+  flex-direction: column;
+  position: relative;
+  bottom: 76px;
+  border: 1px $border-tarification solid;
+  border-radius: 10px;
+  height: fit-content;
+
+  & .logo {
+    height: 76px;
+    @include flex-align;
+    justify-content: center;
+    gap: 10px;
+    background: #ecf7f8;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+
+    & img {
+      @include img-style;
+      height: 48px;
+      width: auto;
+    }
+  }
+
+  & .validColumn {
+    width: 100%;
+
+    & .element {
+      border-bottom: $border-tarification solid 1px;
+      height: 68px;
+      width: 100%;
+      padding: 0 8px;
+      @include flex-align;
+      justify-content: center;
+      background: $valid-icon-background;
+
+      & .icon {
+        width: 38px;
+        height: 38px;
+        padding: 2px;
+        font-weight: 900;
+        border-radius: 50%;
+        color: $whiteDeg1;
+        background-color: $valid-icon-color;
+      }
+
+      & .line {
+        width: 24px;
+        height: 4px;
+        background-color: $black;
+      }
+    }
+  }
+
+  & .button {
+    width: 100%;
+    height: 100px;
+    @include flex-align;
+    justify-content: center;
+
+    & button {
+      font-size: 16px;
+      font-weight: 300;
+      height: 50px;
+      width: 200px;
+      border-radius: 8px;
+      background-color: $primary-color;
+      color: $whiteDeg1;
+      border: $primary-color solid 1px;
+      outline: none;
+      box-shadow: 0 0 0.1rem 0.05rem $primary-color;
+    }
+  }
+}
+
+.active {
+  z-index: 2;
+  bottom: 112px;
+  border: 1px $primary-color solid;
+  box-shadow: 0 0 2rem 0.3rem rgba(89, 93, 97, 0.15);
+  & .logo {
+    border-radius: 0;
+  }
+  h5 {
+    @include flex-align;
+    justify-content: center;
+    width: 100%;
+    height: 36px;
+    color: $whiteDeg1;
+    background: $primary-color;
+    font-weight: 300;
+    border-radius: 8px 8px 0 0;
+  }
+}

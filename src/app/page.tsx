@@ -1,95 +1,74 @@
+import styles from "./styles/pages/_page.module.scss";
 import Image from "next/image";
-import styles from "./page.module.css";
+import acceuil1 from "../../public/img/acceuil-img-1.png";
+import ContactForm from "./components/home/ContactForm";
+import { IoCallOutline } from "react-icons/io5";
+import { CiMail } from "react-icons/ci";
+import InfoContact from "./components/home/InfoContact";
+import DemandeForm from "./components/home/DemandeForm";
+import SliderItems from "./components/home/SliderItems";
 
-export default function Home() {
+const telephoneInfo = {
+  titre: "Telephone",
+  valeur: "05 30 500 500",
+  children: <IoCallOutline />,
+};
+
+const Home = () => {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className={styles.mainContent}>
+      <div className={styles.Section1}>
+        <div className={styles.textPart}>
+          <h1>
+            Sobrus MED au service de la digitalisation des cabinets médicaux.
+          </h1>
+          <h5>
+            La solution idéale pour gérer efficacement votre cabinet médical.
+          </h5>
+          <div className={styles.Form}>
+            <h5>Je souhaite être contacté</h5>
+            <ContactForm />
+          </div>
+        </div>
+        <div className={styles.imageAcceuil1}>
+          <Image src={acceuil1} alt=""></Image>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className={styles.Section2}>
+        <div>
+          <h4>Témoignages</h4>
+          <h2>Ce que les médecins en pensent ?</h2>
+        </div>
+        {/* <SliderItems /> */}
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className={styles.Section3}>
+        <h3>
+          Vous êtes médecin et vous avez besoin d&apos;un logiciel de
+          <br /> gestion pour votre cabinet médical ?
+        </h3>
+        <h4>Démonstration gratuitement !</h4>
+        <h5 className={styles.FirstH5}>
+          Notre équipe prendra contract avec vous pour répondre à toutes <br />
+          vos questions
+        </h5>
+        <div className={styles.ContactInfo}>
+          <InfoContact
+            titre="Téléphone"
+            valeur="05 30 500 500"
+            icon={<IoCallOutline />}
+          />
+          <InfoContact
+            titre="E-mail"
+            valeur="support@sobrus.com"
+            icon={<CiMail />}
+          />
+        </div>
+        <div className={styles.DemandeForm}>
+          <DemandeForm />
+        </div>
       </div>
-    </main>
+    </div>
   );
-}
+};
+
+export default Home;

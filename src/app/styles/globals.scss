@@ -1,0 +1,28 @@
+@import "./globals/variables";
+@import "./globals/colors";
+@import "./globals/mixins";
+@import "./globals/sizes";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.index0 {
+  padding: 2.4rem 0.8rem;
+  color: $primary-color;
+  background: linear-gradient(#fff, #f6feff);
+  border-bottom: 2px solid $secondary-color;
+}

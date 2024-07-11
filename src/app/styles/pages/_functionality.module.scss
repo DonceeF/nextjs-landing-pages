@@ -1,0 +1,65 @@
+@import "../../styles//globals/colors";
+@import "../../styles//globals/mixins";
+
+.Section2,
+.Section4,
+.Section6 {
+  background: $whiteDeg2;
+}
+
+.Section1,
+.Section2,
+.Section3,
+.Section4,
+.Section5,
+.Section6 {
+  @include section-fonctionalite;
+  overflow: hidden;
+
+  & .image {
+    position: relative;
+    z-index: 2;
+
+    & img {
+      @include img-fonctionalite;
+      z-index: 4;
+    }
+
+    & .cercle {
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      background: $shapes-background;
+      border-radius: 50%;
+      z-index: -1;
+      top: 20px;
+      left: 400px;
+      border: $whiteDeg1 8px solid;
+      outline: 2px solid #19b0d2;
+    }
+
+    & .bigRec {
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      background: $shapes-background;
+      border-radius: 50%;
+      z-index: -1;
+      top: 0px;
+      left: 0px;
+      border: $whiteDeg1 8px solid;
+      outline: 2px solid #19b0d2;
+    }
+
+    & .cercle2 {
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      background: $shapes-background;
+      border-radius: 50% 0 50% 50%;
+      z-index: -1;
+      top: -20px;
+      left: 240px;
+    }
+  }
+}

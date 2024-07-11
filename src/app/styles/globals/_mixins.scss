@@ -1,0 +1,52 @@
+@mixin button-styly($color, $background, $border) {
+  text-align: center;
+  width: 8rem;
+  height: 2.8rem;
+  border-radius: 0.3rem;
+  border: 1px solid $border;
+  color: $color;
+  background-color: $background;
+  cursor: pointer;
+}
+
+@mixin logo_width_height {
+  width: 128px;
+  height: auto;
+}
+
+@mixin flex-align {
+  display: flex;
+  align-items: center;
+}
+
+@mixin underLine {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 25%;
+  background-color: $underLine-color;
+  position: absolute;
+  bottom: 20%;
+  right: 0;
+  z-index: -1;
+}
+
+@mixin section-fonctionalite {
+  padding: 6rem 4rem;
+  @include flex-align;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+@mixin img-style {
+  object-fit: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin img-fonctionalite {
+  width: 680px;
+  height: auto;
+  @include img-style;
+  z-index: 1;
+}

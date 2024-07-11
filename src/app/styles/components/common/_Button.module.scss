@@ -1,0 +1,26 @@
+@import "../../globals/colors";
+@import "../../globals/mixins";
+
+.coloredButton {
+  @include button-styly($whiteDeg1, $primary-color, $primary-color);
+  transition: all ease-in-out 0.3s;
+  cursor: pointer;
+  &:hover {
+    background: $hover-color;
+    color: $whiteDeg1;
+    transition: all ease-in-out 0.3s;
+  }
+}
+
+.notColoredButton {
+  @include button-styly($primary-color, $whiteDeg1, $primary-color);
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+  cursor: pointer;
+  &:hover {
+    background: $hover-color;
+    color: $whiteDeg1;
+    transition: all ease-in-out 0.3s;
+    border: none;
+  }
+}

@@ -1,0 +1,63 @@
+@import "../../globals/mixins";
+@import "../../globals/colors";
+
+@mixin flex-style($direction) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+.NavBar {
+  @include flex-style(column);
+
+  box-shadow: $shadow;
+}
+
+.FirstPart {
+  @include flex-style(row);
+
+  padding: 0.8rem 4rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $secondary-color;
+  color: $whiteDeg1;
+  font-weight: 100;
+}
+
+.Icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.SecondPart {
+  @include flex-style(row);
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 4rem;
+  height: auto;
+}
+
+.Logo img {
+  @include logo_width_height;
+}
+
+.SecondPart ul {
+  @include flex-style(row);
+  list-style: none;
+}
+
+.SecondPart li {
+  padding: 2.4rem 0.8rem;
+}
+
+.SecondPart li:hover {
+  color: $primary-color;
+  background: linear-gradient($whiteDeg1, #f6feff);
+  border-bottom: 2px solid $secondary-color;
+}
+
+.Buttons {
+  @include flex-style(row);
+  gap: 10px;
+}

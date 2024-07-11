@@ -1,0 +1,52 @@
+@import "../../globals/colors";
+@import "../../globals/mixins";
+
+.paragraph {
+  padding: 2rem;
+  width: 600px;
+  height: auto;
+
+  .paragraphText {
+    & h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 40px;
+
+      & span {
+        position: relative;
+        z-index: 1;
+        &::after {
+          @include underLine;
+        }
+      }
+    }
+
+    & p {
+      font-size: 20px;
+      line-height: 32px;
+    }
+  }
+
+  button {
+    @include button-styly($primary-color, transparent, transparent);
+    width: auto;
+    height: auto;
+    padding: 16px;
+    @include flex-align;
+    gap: 8px;
+    font-size: 16px;
+    padding-left: 0;
+    margin-top: 12px;
+    & .icon {
+      width: 20px;
+      height: 20px;
+      @include flex-align;
+      justify-content: center;
+      border-radius: 50%;
+      color: $whiteDeg1;
+      background-color: $primary-color;
+      margin-left: 16px;
+    }
+  }
+}

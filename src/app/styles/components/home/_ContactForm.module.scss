@@ -1,0 +1,29 @@
+@import "../../globals/colors";
+
+.Form {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.Input,
+.Select {
+  padding-left: 10px;
+  width: 12rem;
+  height: 2.8rem;
+  border-radius: 0.3rem;
+  background-color: $input-background;
+  border: solid 1px $input-border;
+  color: $black;
+  &::placeholder {
+    color: $input-color;
+  }
+}
+
+.Select {
+  color: $input-color;
+
+  option {
+    color: $black;
+  }
+}

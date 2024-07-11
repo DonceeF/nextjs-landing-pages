@@ -1,0 +1,33 @@
+@import "../../globals/colors";
+@import "../../globals/mixins";
+
+.headerTitle {
+  height: 40vh;
+  background-color: $primary-color;
+  color: $whiteDeg1;
+  padding: 2rem 4rem;
+  border-bottom-right-radius: 100% 45%;
+  border-bottom-left-radius: 100% 45%;
+
+  & .secondCase {
+    position: relative;
+    height: 100%;
+
+    & h1 {
+      font-size: 72px;
+      font-weight: 500;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    & h4 {
+      font-weight: 300;
+
+      & span {
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@import "../globals/colors";
+@import "../globals/mixins";
+
+.container {
+  padding: 6rem;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 48px;
+  column-gap: 16px;
+}

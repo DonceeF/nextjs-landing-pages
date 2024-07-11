@@ -1,0 +1,60 @@
+@import "../../globals/colors";
+
+.Icon {
+  color: black;
+}
+
+.FormLabelInput,
+.FromInput {
+  color: $label-color;
+}
+
+.FormLabelInput label {
+  position: relative;
+  bottom: 10px;
+}
+
+.FormInput {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.FormInput input {
+  background: $input-background;
+  color: $black;
+  outline: none;
+  border: none;
+}
+
+.FormInput input::placeholder {
+  color: $input-color;
+}
+
+.FormInput input {
+  width: 100%;
+  height: 100%;
+  color: $input-color;
+}
+
+.FormInput input:focus {
+  background-color: $input-background;
+}
+
+.FormInput {
+  background-color: $input-background;
+  padding: 10px;
+  border: $input-border solid 1px;
+  border-radius: 150px;
+}
+.Icon {
+  color: $icon-input-color;
+  padding: 5px;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: $icon-input-background;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

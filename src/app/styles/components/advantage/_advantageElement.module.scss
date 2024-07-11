@@ -1,0 +1,40 @@
+@import "../../globals/colors";
+@import "../../globals/mixins";
+
+.element {
+  width: auto;
+  height: 100%;
+  padding: 30px 32px 36px;
+  box-shadow: $shadow;
+  border-radius: 16px;
+
+  & .icon {
+    @include flex-align;
+    justify-content: center;
+    padding: 12px 12px;
+    width: 68px;
+    height: 68px;
+    background: $icon-avantage-background;
+    border-radius: 8px;
+
+    & img {
+      object-fit: cover;
+      background-repeat: no-repeat;
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  & h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 20px 0;
+  }
+
+  & p {
+    font-size: 20px;
+    width: 350px;
+    font-weight: 400;
+    line-height: 28px;
+  }
+}

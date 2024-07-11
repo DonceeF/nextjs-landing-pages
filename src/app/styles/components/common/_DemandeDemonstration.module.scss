@@ -1,0 +1,39 @@
+@import "../../globals/colors";
+@import "../../globals/mixins";
+
+.DemandeDemo {
+  height: auto;
+  padding: 4rem;
+  text-align: center;
+  background-color: $whiteDeg2;
+
+  & h1 {
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 2rem;
+
+    & .boldText {
+      font-weight: 700;
+
+      & .underLineText {
+        position: relative;
+        z-index: 1;
+        &::after {
+          @include underLine;
+        }
+      }
+    }
+  }
+
+  & button {
+    @include button-styly($whiteDeg1, $primary-color, $primary-color);
+    width: auto;
+    height: auto;
+    padding: 16px;
+
+    &:hover {
+      background-color: $hover-color;
+      border: 1px solid $hover-color;
+    }
+  }
+}

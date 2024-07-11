@@ -1,0 +1,94 @@
+@import "../../globals/mixins";
+@mixin img_style {
+  @include logo_width_height;
+  margin-bottom: 5px;
+}
+
+.FirstPart {
+  padding: 4rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.parag {
+  line-height: 1.8rem;
+}
+
+.Definition {
+  width: 27%;
+}
+
+.Definition img {
+  @include img_style();
+}
+
+.SoluOuti {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.SoluOuti h4 {
+  margin-bottom: 3rem;
+}
+
+.SoluOuti ul {
+  list-style: none;
+}
+
+.SoluOuti li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.SoluOuti li::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -15px;
+  bottom: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #33b9d7;
+}
+
+.Contact h4 {
+  margin-bottom: 3rem;
+}
+
+.moyenContact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 6rem;
+}
+
+.SecondPart {
+  padding: 0.8rem 4rem;
+  background-color: #33b9d7;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.SecondPart img {
+  height: auto;
+  width: 80px;
+}
+
+.copy {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-weight: 300;
+}
+
+.offert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}

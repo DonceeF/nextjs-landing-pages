@@ -1,0 +1,35 @@
+@import "../../../styles/globals/colors";
+@import "../../../styles/globals/mixins";
+
+.sliderContainer {
+  margin: 3rem;
+  padding: 2.5rem;
+  @include flex-align;
+  justify-content: space-between;
+  position: relative;
+  gap: 16px;
+  //overflow: hidden;
+
+  .items {
+    border-radius: 16px;
+
+    padding: 2rem;
+    box-shadow: $shadow;
+
+    .user {
+      @include flex-align;
+      justify-content: center;
+      gap: 16px;
+
+      & img {
+        width: 4rem;
+        height: auto;
+      }
+
+      .userInfo {
+        @include flex-align;
+        flex-direction: column;
+      }
+    }
+  }
+}

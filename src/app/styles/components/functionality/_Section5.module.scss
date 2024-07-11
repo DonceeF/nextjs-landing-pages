@@ -1,0 +1,43 @@
+@import "../../globals/colors";
+@import "../../globals/mixins";
+
+.section {
+  width: 550px;
+  height: auto;
+
+  & h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 44px;
+
+    & span {
+      position: relative;
+      z-index: 1;
+      &::after {
+        @include underLine;
+      }
+    }
+  }
+
+  & p {
+    font-size: 20px;
+    line-height: 32px;
+
+    & span {
+      font-weight: 700;
+    }
+  }
+
+  & .NumbersInfo {
+    @include flex-align;
+    gap: 24px;
+    margin: 28px 0 16px;
+  }
+
+  & h6 {
+    font-size: 20px;
+    font-weight: 300;
+    color: $primary-color;
+  }
+}
