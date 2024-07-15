@@ -51,15 +51,23 @@ const FeatureColumn = ({
   return (
     <div className={active ? styles.active : styles.featureColumn}>
       {active && <h5>Nous recommandons</h5>}
-      <div className={styles.logo}>
+      <div className={styles.logoContainer}>
         {src2 ? (
-          <>
+          <div className={styles.twoLogos}>
+            <div>
+
             <Image src={src1} alt="valid" />
             +
             <Image src={src2} alt="notValid" />
-          </>
+            <h2>?</h2>
+          </div>
+          </div>
         ) : (
-          <Image src={src1} alt="valid" />
+          <div className={styles.oneLogo}>
+
+            <Image src={src1} alt="valid" />
+            <h2>?</h2>
+          </div>
         )}
       </div>
       <div className={styles.validColumn}>

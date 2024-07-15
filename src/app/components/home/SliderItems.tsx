@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import styles from "../../styles/components/home/_SliderItems.module.scss";
 import Slider from "react-slick";
 import Image from "next/image";
@@ -41,6 +41,15 @@ const data_slider = [
 const SliderItems: React.FC = () => {
   const sliderRef = useRef<Slider | null>(null);
 
+  useEffect(() => {
+    console.log("SliderItems rendered");
+    if (typeof window !== "undefined") {
+      console.log("Client-side rendering");
+    } else {
+      console.log("Server-side rendering");
+    }
+  }, []);
+
   const ArrowRight = classNames("arrow", "arrowRight");
   const ArrowLeft = classNames("arrow", "arrowLeft");
 
@@ -66,6 +75,7 @@ const SliderItems: React.FC = () => {
   const slideLeft = () => {
     sliderRef.current?.slickPrev();
   };
+
   return (
     <div className={styles.sliderContainer}>
       <div className={ArrowLeft} onClick={slideLeft}>
@@ -93,4 +103,6 @@ const SliderItems: React.FC = () => {
   );
 };
 
-export default SliderItems;
+export default React.memo(SliderItems);
+
+

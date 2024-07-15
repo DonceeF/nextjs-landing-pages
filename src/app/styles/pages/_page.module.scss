@@ -1,48 +1,126 @@
 @import "../globals/colors";
 @import "../globals/mixins";
 
-.imageAcceuil1 img {
-  width: 50vw;
-  height: auto;
-  position: relative;
-  right: -4rem;
-}
-
 .Section1 {
   padding: 0 4rem;
   @include flex-align;
   justify-content: space-between;
+
+  & .textPart {
+    & h1 {
+      font-size: 3rem;
+      line-height: 4rem;
+
+      & span {
+        position: relative;
+        z-index: 1;
+        &::after {
+          @include underLine;
+        }
+      }
+    }
+
+    & h5 {
+      margin-top: 3rem;
+    }
+
+    & .Form{
+
+      & h5 {
+        margin-bottom: 1.2rem;
+        font-weight: 300;
+      }
+    }    
+  }
+
+  & .imageAcceuil1 {
+
+    & img{
+      width: 50vw;
+      height: auto;
+      position: relative;
+      right: -4rem;
+    }
+  }
 }
 
-.textPart h1 {
-  font-size: 3rem;
-  line-height: 4rem;
+.Definition {
+  padding: 8rem 4rem;
+  @include flex-align;
+  justify-content: space-evenly;
+
+  & .imgAcceuil {
+    display: inline-block;
+    position: relative;
+    
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: rotate(-25deg);
+      background: $shapes-background;
+      z-index: -1;
+      transform-origin: center;
+      border-radius: 4rem;
+    }
+
+    & img {
+      z-index: 1;
+      display: block;
+      position: relative;
+      width: 25vw;
+      height: auto;
+      @include img-style;
+    }
+  }
+
+  & .paragraph {
+    width: 600px;
+
+    & h1{
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    & p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.6rem;
+      margin-bottom: 1.2rem;
+      & span {
+        font-weight: 800;
+      }
+    }
+  }
 }
 
-.textPart h5 {
-  margin-top: 3rem;
-}
-
-.Form h5 {
-  margin-bottom: 1.2rem;
-  font-weight: 300;
+.Solution {
+  background: $whiteDeg2-acceuil;
 }
 
 .Section2 {
   background-color: $whiteDeg2;
   padding: 4rem 0;
   text-align: center;
+
+  & div {
+
+    & h4 {
+      color: $primary-color;
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+
+    & h2 {
+      font-size: 2.5rem;
+    }
+  }
 }
 
-.Section2 h4 {
-  color: $primary-color;
-  font-weight: 400;
-  margin-bottom: 15px;
-}
-
-.Section2 h2 {
-  font-size: 2.5rem;
-}
 
 .Section3 {
   color: $whiteDeg1;

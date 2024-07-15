@@ -14,6 +14,7 @@
 .Section5,
 .Section6 {
   @include section-fonctionalite;
+  @include flex-align;
   overflow: hidden;
 
   & .image {
@@ -40,15 +41,24 @@
 
     & .bigRec {
       position: absolute;
-      width: 650px;
-      height: 650px;
+      width: 200px;
+      height: 500px;
       background: $shapes-background;
-      border-radius: 50%;
+      border-radius: 0 3rem 3rem 0;
       z-index: -1;
-      top: 0px;
-      left: 0px;
-      border: $whiteDeg1 8px solid;
-      outline: 2px solid #19b0d2;
+      top: -3rem;
+      left: -4rem;
+    }
+
+    & .smallRec {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: $shapes-background;
+      border-radius:24px;
+      z-index: -1;
+      top: -1rem;
+      right: -0.8rem;
     }
 
     & .cercle2 {
@@ -60,6 +70,41 @@
       z-index: -1;
       top: -20px;
       left: 240px;
+    }
+
+    & .halfCercle {
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      background: $shapes-background;
+      border-radius: 0 50% 50% 0  ;
+      z-index: -1;
+      top: -3rem;
+      left: -4rem
+    }
+
+    & .rec {
+      position: absolute;
+      width: 250px;
+      height: 550px;
+      background: $shapes-background;
+      border-radius: 3rem;
+      z-index: -1;
+      top: -3rem;
+      right: -4rem;
+    }
+
+    & .secondCercle {
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      background: $shapes-background;
+      border-radius: 50%;
+      z-index: -1;
+      top: -3rem;
+      left: calc(-4rem - 275px);
+      border: $whiteDeg1 8px solid;
+      outline: 2px solid #19b0d2;
     }
   }
 }

@@ -12,7 +12,6 @@ import {
   functionality5,
   functionality6,
 } from "../../../../public/img";
-
 const titles = [
   {
     title: (
@@ -95,7 +94,7 @@ export default function Home() {
       <div className={styles.Section4}>
         <div className={styles.image}>
           <Image src={functionality4} alt="" />
-          <div className={styles.cercle2}></div>
+          <div className={styles.halfCercle}></div>
         </div>
         <Paragraph title={titles[3].title} paragraph={titles[3].paragraph} />
       </div>
@@ -103,12 +102,13 @@ export default function Home() {
         <Section5 />
         <div className={styles.image}>
           <Image src={functionality5} alt="" />
+          <div className={styles.rec}></div>
         </div>
       </div>
       <div className={styles.Section6}>
         <div className={styles.image}>
           <Image src={functionality6} alt="" />
-          <div className={styles.cercle2}></div>
+          <div className={styles.secondCercle}></div>
         </div>
         <Paragraph title={titles[4].title} paragraph={titles[4].paragraph} />
       </div>

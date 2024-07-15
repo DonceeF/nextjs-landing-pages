@@ -4,7 +4,7 @@
 .main {
   padding: 10rem 6rem 2rem;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns:repeat(4, 1fr) auto;
 
   & .features {
     border: solid $border-tarification 1px;

@@ -12,15 +12,72 @@
   border-radius: 10px;
   height: fit-content;
 
-  & .logo {
+  & .logoContainer {
     height: 76px;
     @include flex-align;
     justify-content: center;
-    gap: 10px;
     background: #ecf7f8;
     width: 100%;
     border-radius: 10px 10px 0 0;
+    padding: 1rem;
 
+    & .twoLogos {
+      @include flex-align;
+      justify-content: space-evenly;
+      width: 100%;
+
+      & div {
+        @include flex-align;
+        justify-content: center;
+        gap: .8rem;
+
+        & img {
+        @include img-style;
+          height: 44px;
+          width: auto;
+        }
+
+        & h2 {
+          @include flex-align;
+        justify-content: center;
+          padding: 0;
+          background-color: $primary-color;
+          color: $whiteDeg1;
+          border: 8px solid $whiteDeg1;
+          border-radius: 50%;
+          font-size: 16px;
+        width: 2.3rem;
+        height: 2.3rem;
+        }
+      }
+      }
+
+
+
+    & .oneLogo {
+      width: 100%;
+      @include flex-align;
+      justify-content: space-between;
+
+      & img {
+        @include img-style;
+        height: 48px;
+        width: auto;
+      }
+
+      & h2 {
+        @include flex-align;
+        justify-content: center;
+        font-size: 16px;
+        width: 2.3rem;
+        height: 2.3rem;
+        padding: 0;
+        background-color: $primary-color;
+        color: $whiteDeg1;
+        border: 8px solid $whiteDeg1;
+        border-radius: 50%;
+      }
+    }
     & img {
       @include img-style;
       height: 48px;
@@ -84,7 +141,7 @@
   bottom: 112px;
   border: 1px $primary-color solid;
   box-shadow: 0 0 2rem 0.3rem rgba(89, 93, 97, 0.15);
-  & .logo {
+  & .logoContainer {
     border-radius: 0;
   }
   h5 {
