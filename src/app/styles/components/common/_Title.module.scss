@@ -2,7 +2,7 @@
 @import "../../globals/mixins";
 
 .headerTitle {
-  height: 40vh;
+  height: 35vh;
   background-color: $primary-color;
   color: $whiteDeg1;
   padding: 2rem 4rem;
@@ -20,6 +20,66 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+    }
+
+    & h4 {
+      font-weight: 300;
+
+      & span {
+        font-weight: 600;
+      }
+    }
+  }
+
+  
+}
+
+.firstCase {
+    height: 20vh;
+    background-color: $primary-color;
+    color: $whiteDeg1;
+    padding: 1rem 16rem 2rem;
+
+    & h1 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin: 2rem 0 1rem;
+    }
+
+    & h4 {
+      font-weight: 300;
+
+      & span {
+        font-weight: 600;
+      }
+    }
+
+    & .icon {
+      @include flex-align;
+      gap: 1rem;
+    }
+}
+
+.headerTitleContact {
+  height: 55vh;
+  background-color: $primary-color;
+  color: $whiteDeg1;
+  padding: 2rem 4rem;
+  border-bottom-right-radius: 100% 45%;
+  border-bottom-left-radius: 100% 45%;
+
+  & .secondCase {
+    position: relative;
+    height: 100%;
+
+    & h1 {
+      font-size: 4.5rem;
+      font-weight: 500;
+      position: absolute;
+      left: 50%;
+      top: 35%;
+      transform: translate(-50%, -50%);
+      text-align: center;
     }
 
     & h4 {

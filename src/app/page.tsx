@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./styles/pages/_page.module.scss";
 import Image from "next/image";
 import acceuil1 from "../../public/img/acceuil-img-1.png";
@@ -14,7 +15,10 @@ const titles = [
   {
     title: (
       <h2>
-        La solution qui vous accompagne <span>durant </span><span>tout </span><span>le </span><span>processus</span>  de vos consultations
+        La solution qui vous accompagne <span>durant </span>
+        <span>tout </span>
+        <span>le </span>
+        <span>processus</span> de vos consultations
       </h2>
     ),
     paragraph:
@@ -22,19 +26,15 @@ const titles = [
   },
 ];
 
-const telephoneInfo = {
-  titre: "Telephone",
-  valeur: "05 30 500 500",
-  children: <IoCallOutline />,
-};
-
 const Home = () => {
   return (
     <div className={styles.mainContent}>
       <div className={styles.Section1}>
         <div className={styles.textPart}>
           <h1>
-            Sobrus MED au service de la digitalisation des <span>cabinets </span><span>médicaux.</span>
+            Sobrus MED au service de la digitalisation des{" "}
+            <span>cabinets </span>
+            <span>médicaux.</span>
           </h1>
           <h5>
             La solution idéale pour gérer efficacement votre cabinet médical.
@@ -45,25 +45,40 @@ const Home = () => {
           </div>
         </div>
         <div className={styles.imageAcceuil1}>
-          <Image src={acceuil1} alt=""/>
+          <Image src={acceuil1} alt="" />
         </div>
       </div>
 
       <div className={styles.Definition}>
         <div className={styles.imgAcceuil}>
-          < Image src={acceuil2} alt="page d'acceuil 2"/>
+          <Image src={acceuil2} alt="page d'acceuil 2" />
         </div>
         <div className={styles.paragraph}>
           <h1>Qu&apos;est-ce que Sobrus MED ?</h1>
-          <p><span>Sobrus MED est la solution Cloud idéale à la gestion des </span>cabinets médicaux. La solution se caractérise par une sécurité et une confidentialité maximales pour toutes vos données et ceux de vos patients.</p>
-          <p><span>Sobrus MED vous donne la possibilité de profiter d&apos;une </span>panoplie d&apos;avantages dédiée aux médecins pour les accompagner dans leur transition digitale avec une interface simple, des formations personnalisées et un service client disponible pour vous aider à exceller dans votre transformation.</p>
+          <p>
+            <span>
+              Sobrus MED est la solution Cloud idéale à la gestion des{" "}
+            </span>
+            cabinets médicaux. La solution se caractérise par une sécurité et
+            une confidentialité maximales pour toutes vos données et ceux de vos
+            patients.
+          </p>
+          <p>
+            <span>
+              Sobrus MED vous donne la possibilité de profiter d&apos;une{" "}
+            </span>
+            panoplie d&apos;avantages dédiée aux médecins pour les accompagner
+            dans leur transition digitale avec une interface simple, des
+            formations personnalisées et un service client disponible pour vous
+            aider à exceller dans votre transformation.
+          </p>
         </div>
       </div>
 
       <div className={styles.Solution}>
         <div className={styles.image}>
-            {/* <Image src={} alt="" /> */}
-            <div className={styles.cercle2}></div>
+          {/* <Image src={} alt="" /> */}
+          <div className={styles.cercle2}></div>
         </div>
         <Paragraph title={titles[0].title} paragraph={titles[0].paragraph} />
       </div>
@@ -73,9 +88,7 @@ const Home = () => {
           <h4>Témoignages</h4>
           <h2>Ce que les médecins en pensent ?</h2>
         </div>
-        <div>
-          {/* <SliderItems /> */}
-        </div>
+        <div>{/* <SliderItems /> */}</div>
       </div>
       <div className={styles.Section3}>
         <h3>
@@ -92,11 +105,17 @@ const Home = () => {
             titre="Téléphone"
             valeur="05 30 500 500"
             icon={<IoCallOutline />}
+            iconColor="#19b0d2"
+            iconBackground="#fff"
+            textColor="#fff"
           />
           <InfoContact
             titre="E-mail"
             valeur="support@sobrus.com"
             icon={<CiMail />}
+            iconColor="#19b0d2"
+            iconBackground="#fff"
+            textColor="#fff"
           />
         </div>
         <div className={styles.DemandeForm}>

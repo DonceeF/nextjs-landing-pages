@@ -38,7 +38,7 @@ const NavBar = () => {
               <Link href={"/actualites"}>Actualités</Link>
             </li>
             <li className={"index5"}>
-              <Link href={"/"}>Contact</Link>
+              <Link href={"/contact"}>Contact</Link>
             </li>
             <li className={"index6"}>
               <Link href={"/"}>FAQ</Link>

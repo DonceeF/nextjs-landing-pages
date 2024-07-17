@@ -1,0 +1,44 @@
+@import "../globals/colors";
+@import "../globals/mixins";
+
+.main {
+    padding: 4rem;
+    & .contentGrid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column: 1rem;
+        grid-row: 2rem;
+    }
+
+    & .buttons{
+        @include flex-align;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 4rem;
+
+        & .icon, & h2 {
+            font-size: 1.2rem;
+            border-radius: 4px;
+            width: 3rem;
+            height: 3rem;
+            @include flex-align;
+            justify-content: center;
+            padding: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        & .icon:nth-of-type(1) {
+            background: $icon-off-background;
+            color: $icon-off-color;
+        }
+        
+        & h2, & .icon:nth-of-type(2) {
+            background: $icon-on-background;
+            color: $primary-color;
+        }
+
+
+    }
+}

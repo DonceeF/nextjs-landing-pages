@@ -1,0 +1,14 @@
+@import "../../../globals/colors";
+@import "../../../globals/mixins";
+
+.icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    color: $primary-color;
+    border: 1px solid #e0e0e0;
+    @include flex-align;
+    justify-content: center;
+    cursor: pointer;
+}

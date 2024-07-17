@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import styles from "../../styles/components/home/_DemandeForm.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { IoCallOutline } from "react-icons/io5";
@@ -10,7 +11,7 @@ import InputForm from "../common/InputForm";
 enum Specialite {}
 
 export interface IFormInput {
-  telephone: Number;
+  telephone: number;
   specialite: Specialite;
   nom: string;
   prenom: string;

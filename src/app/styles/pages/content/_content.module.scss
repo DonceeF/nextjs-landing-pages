@@ -1,0 +1,43 @@
+@import "../../globals/colors";
+@import "../../globals/mixins";
+
+.main {
+    padding: 6rem 10rem 2rem;
+    
+    & .image {
+        position: relative;
+        top: -11rem;
+        width: 100%;
+        height: fit-content;
+        margin-bottom: 14rem;
+        
+        & img{
+            position: absolute;
+            @include img-style;
+            width: 100%;
+            height: auto;
+            
+        }
+    }
+
+    & .paragraph {
+        margin: 0 6rem;
+
+        & p {
+            font-size: 1.18rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            line-height: 1.6rem;
+        }
+    }
+
+    & .partage {
+        margin: 2rem 6rem 0;
+
+        & .icons {
+            @include flex-align;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+    }
+}
