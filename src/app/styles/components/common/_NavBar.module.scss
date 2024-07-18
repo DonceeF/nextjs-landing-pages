@@ -61,3 +61,10 @@
   @include flex-style(row);
   gap: 10px;
 }
+
+.active {
+  padding: 2.4rem 0.8rem;
+  color: $primary-color;
+  background: linear-gradient(#fff, #f6feff);
+  border-bottom: 2px solid $secondary-color;
+}

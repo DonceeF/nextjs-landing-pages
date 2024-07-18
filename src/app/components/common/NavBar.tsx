@@ -1,12 +1,36 @@
+"use client";
+import React, { useEffect, useState } from "react";
 import { FaFacebookF } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
 import styles from "../../styles/components/common/_NavBar.module.scss";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import logo from "/public/img/logo.png";
 import Button from "./Button";
 
 const NavBar = () => {
+  const pathname = usePathname();
+  const [activePath, setActivePath] = useState<string>("");
+
+  useEffect(() => {
+    setActivePath(pathname);
+  }, [pathname]);
+
+  const handleClick = (path: string) => {
+    setActivePath(path);
+  };
+
+  const menuItems = [
+    { href: "/", label: "Acceuil" },
+    { href: "/functionality", label: "Fonctionnalités" },
+    { href: "/advantage", label: "Avantages" },
+    { href: "/tarification", label: "Tarification" },
+    { href: "/actualites", label: "Actualités" },
+    { href: "/contact", label: "Contact" },
+    { href: "/faq", label: "FAQ" },
+  ];
+
   return (
     <div className={styles.NavBar}>
       <div className={styles.FirstPart}>
@@ -18,33 +42,26 @@ const NavBar = () => {
       </div>
       <div className={styles.SecondPart}>
         <div className={styles.Logo}>
-          <Image src={logo} alt=""></Image>
+          <Image src={logo} alt="Logo" />
         </div>
-        <div className="List">
+        <div className={styles.List}>
           <ul>
-            <li className={"index0"}>
-              <Link href={"/"}>Acceuil</Link>
-            </li>
-            <li className={"index1"}>
-              <Link href={"/functionality"}>Fonctionnalités</Link>
-            </li>
-            <li className={"index2"}>
-              <Link href={"/advantage"}>Avantages</Link>
-            </li>
-            <li className={"index3"}>
-              <Link href={"/tarification"}>Tarification</Link>
-            </li>
-            <li className={"index4"}>
-              <Link href={"/actualites"}>Actualités</Link>
-            </li>
-            <li className={"index5"}>
-              <Link href={"/contact"}>Contact</Link>
-            </li>
-            <li className={"index6"}>
-              <Link href={"/"}>FAQ</Link>
-            </li>
-
-            <li></li>
+            {menuItems.map(({ href, label }) => (
+              <li
+                key={href}
+                className={
+                  href === "/actualites" && activePath === "/actualites/content"
+                    ? styles.active
+                    : activePath === href
+                    ? styles.active
+                    : ""
+                }
+              >
+                <Link onClick={() => handleClick(href)} href={href}>
+                  {label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div className={styles.Buttons}>
