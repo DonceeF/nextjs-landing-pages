@@ -1,0 +1,9 @@
+@import "../../globals/colors";
+@import "../../globals/mixins";
+
+.main {
+  width: 100%;
+  @include flex-align;
+  justify-content: center;
+  padding: 3rem;
+}

@@ -1,0 +1,53 @@
+@import "../globals/colors";
+@import "../globals/mixins";
+
+.main {
+  & .searchBar {
+    width: 100%;
+    @include flex-align;
+    position: relative;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    & .formContainer {
+      margin: auto;
+      @include flex-align;
+      justify-content: space-between;
+      width: 60vw;
+      border-radius: 3rem;
+      overflow: hidden;
+      box-shadow: $shadow;
+      position: absolute;
+      top: -4rem;
+      border: solid $input-border 1px;
+      & input {
+        border: none;
+        width: 100%;
+        height: 5rem;
+        outline: none;
+        padding: 1rem 2rem;
+        color: black;
+        font-size: 1.15rem;
+        font-weight: 300;
+        border-radius: 3rem 0 0 3rem;
+
+        &::placeholder {
+          color: $input-color;
+        }
+      }
+
+      & button {
+        border: none;
+        outline: none;
+        @include flex-align;
+        justify-content: center;
+        cursor: pointer;
+        padding: 1rem 2rem;
+        font-size: 2rem;
+        height: 5rem;
+        color: $whiteDeg1;
+        background: $primary-color;
+      }
+    }
+  }
+}
