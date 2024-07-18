@@ -183,6 +183,12 @@
       @include flex-align;
       justify-content: center;
       gap: 2.5rem;
+
+      & .copyDiv {
+        @include flex-align;
+        align-items: end;
+        gap: 0.5rem;
+      }
     }
 
     & .icons {

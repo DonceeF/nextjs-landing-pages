@@ -1,4 +1,5 @@
 @import "../../globals/mixins";
+@import "../../globals/colors";
 @mixin img_style {
   @include logo_width_height;
   margin-bottom: 5px;
@@ -51,7 +52,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #33b9d7;
+  background: $primary-color;
 }
 
 .Contact h4 {
@@ -67,10 +68,9 @@
 
 .SecondPart {
   padding: 0.8rem 4rem;
-  background-color: #33b9d7;
-  color: #fff;
-  display: flex;
-  align-items: center;
+  background-color: $primary-color;
+  color: $whiteDeg1;
+  @include flex-align;
   justify-content: space-between;
 }
 
@@ -80,15 +80,18 @@
 }
 
 .copy {
-  display: flex;
-  align-items: center;
+  @include flex-align;
   gap: 24px;
   font-weight: 300;
 }
 
 .offert {
-  display: flex;
-  align-items: center;
+  @include flex-align;
   justify-content: center;
   gap: 24px;
+}
+
+.copyPasteDiv {
+  @include flex-align;
+  gap: 0.5rem;
 }

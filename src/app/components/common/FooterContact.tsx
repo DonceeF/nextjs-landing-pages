@@ -1,16 +1,23 @@
+import React from "react";
 import styles from "../../styles/components/common/_FooterContact.module.scss";
 import { IconType } from "react-icons";
+import PartageIcon from "../actualites/content/PartageIcon";
 
 interface Props {
   text: string;
-  icon: React.ReactElement<IconType>;
+  icon: IconType;
 }
 
 const FooterContact = ({ text, icon }: Props) => {
   return (
     <div className={styles.Icons}>
-      {icon}
-      <h6>{text}</h6>
+      <PartageIcon
+        iconBackground="#f8fdfd"
+        iconBorder="transparent"
+        iconColor="#19b0d2"
+        Icon={icon}
+      />
+      <h5>{text}</h5>
     </div>
   );
 };

@@ -1,0 +1,11 @@
+@import "../../globals/colors";
+@import "../../globals/mixins";
+
+.CopyButton {
+  font-size: 1rem;
+  @include flex-align;
+  justify-content: center;
+  border: none;
+  padding: 0.2rem;
+  border-radius: 4px;
+}

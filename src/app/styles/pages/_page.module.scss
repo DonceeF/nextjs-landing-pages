@@ -24,18 +24,16 @@
       margin-top: 3rem;
     }
 
-    & .Form{
-
+    & .Form {
       & h5 {
         margin-bottom: 1.2rem;
         font-weight: 300;
       }
-    }    
+    }
   }
 
   & .imageAcceuil1 {
-
-    & img{
+    & img {
       width: 50vw;
       height: auto;
       position: relative;
@@ -52,10 +50,9 @@
   & .imgAcceuil {
     display: inline-block;
     position: relative;
-    
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -81,7 +78,7 @@
   & .paragraph {
     width: 600px;
 
-    & h1{
+    & h1 {
       font-size: 2.5rem;
       margin-bottom: 1.2rem;
     }
@@ -108,7 +105,6 @@
   text-align: center;
 
   & div {
-
     & h4 {
       color: $primary-color;
       font-weight: 400;
@@ -120,7 +116,6 @@
     }
   }
 }
-
 
 .Section3 {
   color: $whiteDeg1;
@@ -153,5 +148,10 @@
     @include flex-align;
     gap: 24px;
     justify-content: center;
+
+    & .copyPasteDiv {
+      @include flex-align;
+      gap: 0.5rem;
+    }
   }
 }

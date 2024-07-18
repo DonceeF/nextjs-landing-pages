@@ -9,6 +9,7 @@ import { CiMail } from "react-icons/ci";
 import InfoContact from "./components/home/InfoContact";
 import DemandeForm from "./components/home/DemandeForm";
 import Paragraph from "./components/common/Paragraph";
+import CopieButton from "./components/common/CopieButton";
 import SliderItems from "./components/home/SliderItems";
 
 const titles = [
@@ -109,14 +110,17 @@ const Home = () => {
             iconBackground="#fff"
             textColor="#fff"
           />
-          <InfoContact
-            titre="E-mail"
-            valeur="support@sobrus.com"
-            icon={<CiMail />}
-            iconColor="#19b0d2"
-            iconBackground="#fff"
-            textColor="#fff"
-          />
+          <div className={styles.copyPasteDiv}>
+            <InfoContact
+              titre="E-mail"
+              valeur="support@sobrus.com"
+              icon={<CiMail />}
+              iconColor="#19b0d2"
+              iconBackground="#fff"
+              textColor="#fff"
+            />
+            <CopieButton background="#19b0d2" color="#fff" />
+          </div>
         </div>
         <div className={styles.DemandeForm}>
           <DemandeForm />

@@ -1,6 +1,14 @@
+@import "../../globals/colors";
+@import "../../globals/mixins";
+
 .Icons {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  color: #33b9d7;
+  @include flex-align;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+
+  & h5 {
+    color: $black;
+    font-weight: 500;
+    font-size: 1rem;
+  }
 }

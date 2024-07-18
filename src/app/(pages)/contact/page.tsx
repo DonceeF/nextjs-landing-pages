@@ -14,6 +14,7 @@ import PartageIcon from "@/app/components/actualites/content/PartageIcon";
 import { FaFacebookF } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import CopieButton from "@/app/components/common/CopieButton";
 
 enum Specialite {}
 
@@ -131,14 +132,17 @@ const page = () => {
               iconBackground="#eaf3f6"
               textColor="#000"
             />
-            <InfoContact
-              titre="E-mail"
-              valeur="support@sobrus.com"
-              icon={<CiMail />}
-              iconColor="#19b0d2"
-              iconBackground="#eaf3f6"
-              textColor="#000"
-            />
+            <div className={styles.copyDiv}>
+              <InfoContact
+                titre="E-mail"
+                valeur="support@sobrus.com"
+                icon={<CiMail />}
+                iconColor="#19b0d2"
+                iconBackground="#eaf3f6"
+                textColor="#000"
+              />
+              <CopieButton background="#79d1e5" color="#fff" />
+            </div>
           </div>
           <div className={styles.icons}>
             <PartageIcon

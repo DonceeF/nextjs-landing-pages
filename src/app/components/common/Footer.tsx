@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "../../styles/components/common/_Footer.module.scss";
 import Image from "next/image";
 import FooterInfo from "./FooterInfo";
@@ -8,6 +9,7 @@ import { TbWorldWww } from "react-icons/tb";
 import logo from "/public/img/logo.png";
 import sobrusMED from "/public/img/logo-MED.png";
 import sobrusWhite from "/public/img/logo-sobrus-white.png";
+import CopieButton from "./CopieButton";
 
 const footer_data = [
   {
@@ -52,9 +54,12 @@ const Footer = () => {
             CONTACTEZ-<b>NOUS</b>
           </h4>
           <div className={styles.moyenContact}>
-            <FooterContact text="05 30 500 500" icon={<IoCallOutline />} />
-            <FooterContact text="support@sobrus.com" icon={<CiMail />} />
-            <FooterContact text="sobrus.com" icon={<TbWorldWww />} />
+            <FooterContact text="05 30 500 500" icon={IoCallOutline} />
+            <div className={styles.copyPasteDiv}>
+              <FooterContact text="support@sobrus.com" icon={CiMail} />
+              <CopieButton background="#19b0d2" color="#fff" />
+            </div>
+            <FooterContact text="sobrus.com" icon={TbWorldWww} />
           </div>
         </div>
       </div>
