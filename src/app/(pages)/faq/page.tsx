@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Title from "@/app/components/common/Title";
 import DemandeDemonstration from "@/app/components/common/DemandeDemonstration";
@@ -12,26 +12,43 @@ interface FormInput {
   search: string;
 }
 
-const questions = [
-  {
-    question: "Où sont stockées nos données ?",
-    answer:
-      "Vos données sont chiffrées de bout en bout et stockées sur des serveurs dédiés qui se trouvent dans des datacenters certifiés selon les normes internationales et de haute sécurité, inaccessibles au public.",
-  },
-  {
-    question: "Question 2?",
-    answer: "Answer 2.",
-  },
-];
+interface FAQ {
+  id: number;
+  question: string;
+  answer: string;
+  feedback: string;
+}
 
 const page = () => {
+  const [faqs, setFaqs] = useState<FAQ[]>([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const url = new URL("https://api.sobrus.ovh/api/published-faqs");
+      url.searchParams.append("application", "sobrus_med");
+      url.searchParams.append("order", "DESC");
+
+      try {
+        const res = await fetch(url.toString());
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const data = await res.json();
+        setFaqs(data.data);
+      } catch (error) {
+        console.error("Error fetching data:", (error as Error).message);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   const { register, handleSubmit, reset } = useForm<FormInput>();
 
   const onSubmit: SubmitHandler<FormInput> = (data) => {
     console.log(data);
     reset();
   };
-
   return (
     <>
       <Title title1="Foire Aux Questions" />
@@ -52,14 +69,23 @@ const page = () => {
           </form>
         </div>
         <div className={styles.questionsPart}>
-          {questions.map((q, index) => (
-            <AlternatingBackground key={index} index={index}>
-              <QuestionsComponent question={q.question} answer={q.answer} />
+          {faqs.map((faq) => (
+            <AlternatingBackground key={faq.id} index={faq.id}>
+              <QuestionsComponent
+                question={faq.question}
+                answer={JSON.parse(faq.answer).blocks[0].text}
+              />
             </AlternatingBackground>
           ))}
         </div>
       </div>
-      <DemandeDemonstration />
+      <DemandeDemonstration
+        background="rgba(248, 248, 248, 1)"
+        backgroundButton="#19b0d2"
+        color="#000"
+        colorButton="#fff"
+        lightUnderLine={false}
+      />
     </>
   );
 };

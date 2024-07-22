@@ -16,22 +16,47 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import CopieButton from "@/app/components/common/CopieButton";
 
-enum Specialite {}
-
+enum Specialite {
+  MEDECINE = "Médecine",
+  CHIRURGIE = "Chirurgie",
+  RADIOLOGIE = "Radiologie",
+  LABORATOIRE = "Laboratoire",
+}
 interface FormInput {
-  telephone: number;
-  specialite: Specialite;
-  nom: string;
-  prenom: string;
-  description: string;
+  mobileNumber: number;
+  speciality: Specialite;
+  lastName: string;
+  firstName: string;
+  message: string;
 }
 
 const page = () => {
   const { register, handleSubmit, reset } = useForm<FormInput>();
 
-  const onSubmit: SubmitHandler<FormInput> = (data) => {
-    console.log(data);
-    reset();
+  const onSubmit: SubmitHandler<FormInput> = async (data) => {
+    try {
+      const response = await fetch(
+        "https://api.sobrus.ovh/api/med/contact-request",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log("API Response:", result);
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      reset();
+    }
   };
 
   return (
@@ -53,7 +78,7 @@ const page = () => {
                   <input
                     className={styles.Input}
                     placeholder={"Votre nom ici …"}
-                    {...register("nom", { required: true })}
+                    {...register("lastName", { required: true })}
                   />
                 </div>
               </div>
@@ -66,7 +91,7 @@ const page = () => {
                   <input
                     className={styles.Input}
                     placeholder={"Votre prénom ici …"}
-                    {...register("prenom", { required: true })}
+                    {...register("firstName", { required: true })}
                   />
                 </div>
               </div>
@@ -81,7 +106,7 @@ const page = () => {
                   <input
                     className={styles.Input}
                     placeholder={"Votre téléphone ici …"}
-                    {...register("telephone", { required: true })}
+                    {...register("mobileNumber", { required: true })}
                   />
                 </div>
               </div>
@@ -91,10 +116,15 @@ const page = () => {
                   <div className={styles.Icon}>
                     <FaStethoscope />
                   </div>
-                  <select {...register("specialite")} className={styles.Input}>
+                  <select {...register("speciality")} className={styles.Input}>
                     <option value="" disabled selected>
                       Votre spécialité ici …
                     </option>
+                    {Object.entries(Specialite).map(([key, value]) => (
+                      <option key={key} value={value}>
+                        {value}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -109,11 +139,10 @@ const page = () => {
                 <textarea
                   className={styles.textArea}
                   placeholder="Votre message ici …"
-                  {...register("description", { required: true })}
+                  {...register("message", { required: true })}
                 />
               </div>
             </div>
-
             <button type="submit">Envoyer</button>
           </form>
         </div>
@@ -166,7 +195,13 @@ const page = () => {
           </div>
         </div>
       </div>
-      <DemandeDemonstration />
+      <DemandeDemonstration
+        background="rgba(248, 248, 248, 1)"
+        backgroundButton="#19b0d2"
+        color="#000"
+        colorButton="#fff"
+        lightUnderLine={false}
+      />
     </>
   );
 };

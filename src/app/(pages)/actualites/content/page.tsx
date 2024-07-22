@@ -142,7 +142,13 @@ const page = () => {
           </div>
         </div>
       </div>
-      <DemandeDemonstration />
+      <DemandeDemonstration
+        background="rgba(248, 248, 248, 1)"
+        backgroundButton="#19b0d2"
+        color="#000"
+        colorButton="#fff"
+        lightUnderLine={false}
+      />
     </>
   );
 };

@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "../../styles/pages/_functionality.module.scss";
 import DemandeDemonstration from "../../components/common/DemandeDemonstration";
 import Title from "../../components/common/Title";
@@ -112,7 +113,13 @@ export default function Home() {
         </div>
         <Paragraph title={titles[4].title} paragraph={titles[4].paragraph} />
       </div>
-      <DemandeDemonstration />
+      <DemandeDemonstration
+        background="rgba(248, 248, 248, 1)"
+        backgroundButton="#19b0d2"
+        color="#000"
+        colorButton="#fff"
+        lightUnderLine={false}
+      />
     </>
   );
 }

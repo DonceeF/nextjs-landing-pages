@@ -1,20 +1,25 @@
 @import "../../../styles/globals/colors";
 @import "../../../styles/globals/mixins";
 
-.sliderContainer {
-  margin: 3rem;
-  padding: 2.5rem;
-  @include flex-align;
-  justify-content: space-between;
+.main {
+  padding: 4rem;
   position: relative;
-  gap: 16px;
+  border: black solid 1px;
 
-  .items {
+  & .items {
     border-radius: 16px;
-    padding: 2rem;
-    box-shadow: $shadow;
+    padding: 1rem;
+    border: black solid 1px;
+    margin-right: 1rem;
+
+    & p {
+      border: black solid 1px;
+      font-size: 1rem;
+    }
 
     .user {
+      width: fit-content;
+      border: black solid 1px;
       @include flex-align;
       justify-content: center;
       gap: 16px;
@@ -29,5 +34,20 @@
         flex-direction: column;
       }
     }
+  }
+
+  & .ArrowLeft,
+  & .ArrowRight {
+    font-size: 2rem;
+    border-radius: 4px;
+    width: 3rem;
+    height: 3rem;
+    @include flex-align;
+    justify-content: center;
+    font-weight: 500;
+    cursor: pointer;
+    background: $whiteDeg1;
+    color: $primary-color;
+    box-shadow: $shadow;
   }
 }

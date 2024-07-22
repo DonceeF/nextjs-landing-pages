@@ -1,11 +1,10 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import styles from "../../styles/components/home/_SliderItems.module.scss";
 import Slider from "react-slick";
 import Image from "next/image";
 import user from "../../../../public/img/user.png";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import classNames from "classnames";
 
 const data_slider = [
   {
@@ -41,26 +40,12 @@ const data_slider = [
 const SliderItems: React.FC = () => {
   const sliderRef = useRef<Slider | null>(null);
 
-  useEffect(() => {
-    console.log("SliderItems rendered");
-    if (typeof window !== "undefined") {
-      console.log("Client-side rendering");
-    } else {
-      console.log("Server-side rendering");
-    }
-  }, []);
-
-  const ArrowRight = classNames("arrow", "arrowRight");
-  const ArrowLeft = classNames("arrow", "arrowLeft");
-
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 2,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    arrows: false,
+    slidesToScroll: 2,
     appendDots: (dots: React.ReactNode) => (
       <div style={{ position: "absolute", bottom: "-30px" }}>
         <ul style={{ margin: "0px" }}> {dots} </ul>
@@ -77,10 +62,14 @@ const SliderItems: React.FC = () => {
   };
 
   return (
-    <div className={styles.sliderContainer}>
-      <div className={ArrowLeft} onClick={slideLeft}>
+    <div className={styles.main}>
+      <div className={styles.ArrowLeft} onClick={slideLeft}>
         <IoIosArrowBack />
       </div>
+      <div className={styles.ArrowRight} onClick={slideRight}>
+        <IoIosArrowForward />
+      </div>
+
       <Slider ref={sliderRef} {...settings}>
         {data_slider.map((item, index) => (
           <div key={`sliderItem${index}`} className={styles.items}>
@@ -96,13 +85,8 @@ const SliderItems: React.FC = () => {
           </div>
         ))}
       </Slider>
-      <div className={ArrowRight} onClick={slideRight}>
-        <IoIosArrowForward />
-      </div>
     </div>
   );
 };
 
-export default React.memo(SliderItems);
-
-
+export default SliderItems;

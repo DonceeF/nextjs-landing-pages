@@ -198,3 +198,9 @@
     }
   }
 }
+
+.formContainer {
+  & input {
+    color: black;
+  }
+}

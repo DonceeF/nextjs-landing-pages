@@ -36,7 +36,7 @@
       top: 20px;
       left: 400px;
       border: $whiteDeg1 8px solid;
-      outline: 2px solid #19b0d2;
+      outline: 2px solid #d3eef5;
     }
 
     & .bigRec {
@@ -55,7 +55,7 @@
       width: 80px;
       height: 80px;
       background: $shapes-background;
-      border-radius:24px;
+      border-radius: 24px;
       z-index: -1;
       top: -1rem;
       right: -0.8rem;
@@ -77,10 +77,10 @@
       width: 550px;
       height: 550px;
       background: $shapes-background;
-      border-radius: 0 50% 50% 0  ;
+      border-radius: 0 50% 50% 0;
       z-index: -1;
       top: -3rem;
-      left: -4rem
+      left: -4rem;
     }
 
     & .rec {
@@ -104,7 +104,7 @@
       top: -3rem;
       left: calc(-4rem - 275px);
       border: $whiteDeg1 8px solid;
-      outline: 2px solid #19b0d2;
+      outline: 2px solid #d3eef5;
     }
   }
 }
