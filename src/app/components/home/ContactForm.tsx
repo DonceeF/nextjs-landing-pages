@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import styles from "../../styles/components/home/_ContactForm.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Button from "../common/Button";
@@ -9,7 +10,7 @@ enum Disponibilite {
 }
 
 interface IFormInput {
-  telephone: Number;
+  telephone: number;
   disponibilite: Disponibilite;
 }
 

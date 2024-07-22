@@ -15,11 +15,18 @@
     & .boldText {
       font-weight: 700;
 
-      & .underLineText {
+      & .underLineText,
+      & .lightUnderLineText {
         position: relative;
         z-index: 1;
         &::after {
           @include underLine;
+        }
+      }
+
+      & .lightUnderLineText {
+        &::after {
+          background: #66bfd3;
         }
       }
     }

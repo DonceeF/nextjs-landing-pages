@@ -1,0 +1,29 @@
+@import "../../globals/colors";
+@import "../../globals/mixins";
+
+.main {
+  background: $whiteDeg1;
+  padding: 2rem;
+  @include flex-align;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 2rem;
+  box-shadow: $shadow;
+
+  & .image {
+    @include flex-align;
+    justify-content: center;
+    padding: 1rem;
+    background: #f1fbfc;
+    width: fit-content;
+    border-radius: 1rem;
+    & img {
+      width: 4rem;
+      height: auto;
+    }
+  }
+
+  & h3 {
+    font-size: 1.2rem;
+  }
+}

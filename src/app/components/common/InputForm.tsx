@@ -1,22 +1,13 @@
+import React from "react";
 import styles from "../../styles/components/common/_InputForm.module.scss";
 import { UseFormRegister } from "react-hook-form";
 import { IconType } from "react-icons";
 import { IFormInput } from "../../components/home/DemandeForm";
+import { IFormHomeInput, IFormContactInput } from "@/app/types/common.type";
 
 interface Props {
   label: string;
-  name:
-    | "telephone"
-    | "specialite"
-    | "nom"
-    | "prenom"
-    | "checkbox"
-    | "telephone.toFixed"
-    | "telephone.toExponential"
-    | "telephone.toPrecision"
-    | "telephone.toLocaleString"
-    | "telephone.toString"
-    | "telephone.valueOf";
+  name: "telephone" | "specialite" | "checkbox" | "nom" | "prenom";
   placeholder: string;
   register: UseFormRegister<IFormInput>;
   icon: React.ReactElement<IconType>;

@@ -7,16 +7,7 @@ import { CiMail } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa6";
 import InputForm from "../common/InputForm";
-
-enum Specialite {}
-
-export interface IFormInput {
-  telephone: number;
-  specialite: Specialite;
-  nom: string;
-  prenom: string;
-  checkbox: boolean;
-}
+import { IFormInput } from "@/app/types/common.type";
 
 const DemandeForm = () => {
   const { register, handleSubmit, reset } = useForm<IFormInput>();

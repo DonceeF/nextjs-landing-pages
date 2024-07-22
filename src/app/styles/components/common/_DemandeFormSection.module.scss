@@ -1,0 +1,41 @@
+@import "../../globals/colors";
+@import "../../globals/mixins";
+
+.main {
+  color: $whiteDeg1;
+  background: $primary-color;
+  padding: 4rem 4rem 0rem;
+  width: 100%;
+
+  h4,
+  h3,
+  .FirstH5 {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 2.5rem;
+    font-weight: 200;
+  }
+
+  h4 {
+    font-weight: 800;
+    font-size: 2.8rem;
+  }
+
+  .FirstH5 {
+    font-weight: 200;
+  }
+
+  .ContactInfo {
+    @include flex-align;
+    gap: 24px;
+    justify-content: center;
+
+    & .copyPasteDiv {
+      @include flex-align;
+      gap: 0.5rem;
+    }
+  }
+}

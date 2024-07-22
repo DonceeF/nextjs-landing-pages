@@ -11,7 +11,7 @@ const AlternatingBackground = ({
   children,
 }: AlternatingBackgroundProps) => {
   const isEven = index % 2 === 0;
-  const backgroundColor = isEven ? "#fff" : "#f9fdfe";
+  const backgroundColor = isEven ? "#f9fdfe" : "#fff";
 
   return (
     <div style={{ background: backgroundColor }} className={styles.main}>

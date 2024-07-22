@@ -1,0 +1,143 @@
+@import "../globals/colors";
+@import "../globals/mixins";
+
+// ---- global
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 40px;
+  margin-bottom: 3rem;
+
+  & span {
+    position: relative;
+    z-index: 1;
+    &::after {
+      @include underLine;
+    }
+  }
+}
+
+// ----------
+
+.main {
+  .definitionMonOrdonnance {
+    padding: 4rem 4rem 6rem;
+    @include flex-align;
+    justify-content: center;
+    gap: 10rem;
+    position: relative;
+
+    & .image {
+      z-index: 2;
+
+      & img {
+        width: 44rem;
+        height: auto;
+        z-index: 4;
+      }
+
+      & .bigRec {
+        position: absolute;
+        width: 50rem;
+        height: 34rem;
+        background: $shapes-background;
+        border-radius: 50% 0 0 50%;
+        z-index: -1;
+        top: 2rem;
+        right: 0;
+      }
+    }
+    & .paragraph {
+      & img {
+        margin-left: 2rem;
+        width: 14rem;
+        height: auto;
+      }
+    }
+  }
+
+  & .whyMonOrdonnance {
+    padding: 6rem;
+    background: $whiteDeg2;
+    text-align: center;
+    @include flex-align;
+    justify-content: center;
+    flex-direction: column;
+
+    & .reasons {
+      display: grid;
+      grid-template-columns: repeat(3, 25rem);
+      gap: 2rem;
+    }
+  }
+
+  & .ordonnace {
+    padding: 4rem;
+    @include flex-align;
+    justify-content: center;
+    flex-direction: column;
+
+    & .image {
+      margin-top: 1rem;
+      & img {
+        width: 50rem;
+        height: auto;
+        box-shadow: $shadow;
+      }
+    }
+  }
+
+  & .definitionMonSite {
+    padding: 8rem 6rem;
+    @include flex-align;
+    justify-content: space-around;
+    position: relative;
+    background: $whiteDeg2-acceuil;
+
+    & .image {
+      z-index: 2;
+
+      & img {
+        width: 44rem;
+        height: auto;
+        z-index: 4;
+      }
+
+      & .bigRec {
+        position: absolute;
+        width: 38rem;
+        height: 38rem;
+        background: $shapes-background;
+        border-radius: 50%;
+        z-index: -1;
+        top: 4rem;
+        left: -10rem;
+        border: $whiteDeg1 8px solid;
+        outline: 2px solid #d3eef5;
+      }
+    }
+    & .paragraph {
+      & img {
+        margin-left: 2rem;
+        width: 14rem;
+        height: auto;
+      }
+    }
+  }
+
+  & .whyMonSite {
+    padding: 6rem;
+    text-align: center;
+    @include flex-align;
+    justify-content: center;
+    flex-direction: column;
+
+    & .reasons {
+      display: grid;
+      grid-template-columns: repeat(4, 20rem);
+      gap: 2rem;
+    }
+  }
+}
