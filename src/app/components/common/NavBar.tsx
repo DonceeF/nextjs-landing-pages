@@ -10,12 +10,30 @@ import logo from "/public/img/logo.png";
 import Button from "./Button";
 
 const NavBar = () => {
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
   const [activePath, setActivePath] = useState<string>("");
 
   useEffect(() => {
     setActivePath(pathname);
   }, [pathname]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", controlNavbar);
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, [lastScrollY]);
+
+  const controlNavbar = () => {
+    if (window.scrollY > 200 && window.scrollY < 700) {
+      setShow(false);
+    } else {
+      setShow(true);
+    }
+    setLastScrollY(window.scrollY);
+  };
 
   const handleClick = (path: string) => {
     setActivePath(path);
@@ -25,6 +43,7 @@ const NavBar = () => {
     { href: "/", label: "Acceuil" },
     { href: "/functionality", label: "Fonctionnalités" },
     { href: "/advantage", label: "Avantages" },
+    { href: "/nos-outils", label: "Nos outils" },
     { href: "/tarification", label: "Tarification" },
     { href: "/actualites", label: "Actualités" },
     { href: "/contact", label: "Contact" },
@@ -32,7 +51,9 @@ const NavBar = () => {
   ];
 
   return (
-    <div className={styles.NavBar}>
+    <div
+      className={`${styles.NavBar} ${show ? styles.visible : styles.hidden}`}
+    >
       <div className={styles.FirstPart}>
         <h5>Besoin d&apos;aide ? Appelez nous sur le 05 30 500 500</h5>
         <div className={styles.Icons}>

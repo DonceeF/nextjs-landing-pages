@@ -8,13 +8,24 @@
 
 .NavBar {
   @include flex-style(column);
-
   box-shadow: $shadow;
+  transition: top 0.5s;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+
+  &.hidden {
+    top: -200px;
+  }
+
+  &.visible {
+    top: 0;
+  }
 }
 
 .FirstPart {
   @include flex-style(row);
-
   padding: 0.8rem 4rem;
   align-items: center;
   justify-content: space-between;
@@ -36,6 +47,8 @@
   align-items: center;
   padding: 0px 4rem;
   height: auto;
+  background: $whiteDeg1;
+  position: relative;
 }
 
 .Logo img {
