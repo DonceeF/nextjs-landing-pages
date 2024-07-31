@@ -1,14 +1,21 @@
 import React from "react";
-import DemandeDemonstration from "../../components/common/DemandeDemonstration";
-import Title from "../../components/common/Title";
+import dynamic from "next/dynamic";
+import styles from "../../styles/pages/_advantage.module.scss";
+
+const DemandeDemonstration = dynamic(
+  () => import("../../components/common/DemandeDemonstration")
+);
+const Title = dynamic(() => import("../../components/common/Title"));
+const AdvantageElement = dynamic(
+  () => import("../../components/advantage/AdvantageElement")
+);
+
 import iconAvan1 from "../../../../public/img/icon-avantage1.png";
 import iconAvan2 from "../../../../public/img/icon-avantage2.png";
 import iconAvan3 from "../../../../public/img/icon-avantage3.png";
 import iconAvan4 from "../../../../public/img/icon-avantage4.png";
 import iconAvan5 from "../../../../public/img/icon-avantage5.png";
 import iconAvan6 from "../../../../public/img/icon-avantage6.png";
-import styles from "../../styles/pages/_advantage.module.scss";
-import AdvantageElement from "../../components/advantage/AdvantageElement";
 
 const advantages = [
   {

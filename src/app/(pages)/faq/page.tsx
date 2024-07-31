@@ -1,16 +1,27 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-import Title from "@/app/components/common/Title";
-import DemandeDemonstration from "@/app/components/common/DemandeDemonstration";
-import { FiSearch } from "react-icons/fi";
+import dynamic from "next/dynamic";
+import axios from "axios";
 import styles from "../../styles/pages/_faq.module.scss";
-import QuestionsComponent from "@/app/components/faq/QuestionsComponent";
-import AlternatingBackground from "@/app/components/faq/AlternatingBackground";
-
-interface FormInput {
-  search: string;
-}
+const SearchBar = dynamic(() => import("../../components/faq/SearchBar"), {
+  ssr: false,
+});
+const ErrorBoundary = dynamic(
+  () => import("../../errorBoundary/ErrorBoundary"),
+  {
+    ssr: false,
+  }
+);
+const Title = dynamic(() => import("@/app/components/common/Title"));
+const DemandeDemonstration = dynamic(
+  () => import("@/app/components/common/DemandeDemonstration")
+);
+const QuestionsComponent = dynamic(
+  () => import("@/app/components/faq/QuestionsComponent")
+);
+const AlternatingBackground = dynamic(
+  () => import("@/app/components/faq/AlternatingBackground")
+);
 
 interface FAQ {
   id: number;
@@ -24,49 +35,33 @@ const page = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const url = new URL("https://api.sobrus.ovh/api/published-faqs");
-      url.searchParams.append("application", "sobrus_med");
-      url.searchParams.append("order", "DESC");
-
       try {
-        const res = await fetch(url.toString());
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        const data = await res.json();
-        setFaqs(data.data);
+        const response = await axios.get<{ data: FAQ[] }>(
+          "https://api.sobrus.ovh/api/published-faqs",
+          {
+            params: {
+              application: "sobrus_med",
+              order: "DESC",
+            },
+          }
+        );
+        console.log(response.data);
+        setFaqs(response.data.data);
       } catch (error) {
-        console.error("Error fetching data:", (error as Error).message);
+        console.error("Error fetching data:", error);
       }
     }
-
     fetchData();
   }, []);
 
-  const { register, handleSubmit, reset } = useForm<FormInput>();
-
-  const onSubmit: SubmitHandler<FormInput> = (data) => {
-    console.log(data);
-    reset();
-  };
   return (
     <>
       <Title title1="Foire Aux Questions" />
       <div className={styles.main}>
         <div className={styles.searchBar}>
-          <form
-            className={styles.formContainer}
-            onSubmit={handleSubmit(onSubmit)}
-          >
-            <input
-              className={styles.Input}
-              placeholder={"Recherchez une question ici …"}
-              {...register("search", { required: true })}
-            />
-            <button type="submit">
-              <FiSearch />
-            </button>
-          </form>
+          <ErrorBoundary fallback="Something went wrong with the search bar.">
+            <SearchBar />
+          </ErrorBoundary>
         </div>
         <div className={styles.questionsPart}>
           {faqs.map((faq) => (

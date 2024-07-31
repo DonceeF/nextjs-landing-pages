@@ -1,0 +1,44 @@
+@import "../../globals/colors";
+@import "../../globals/mixins";
+
+.main {
+  @include flex-align;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  & .dots {
+    @include flex-align;
+    gap: 0.5rem;
+    justify-content: center;
+    & div {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: $primary-color;
+    }
+
+    & .grayDot {
+      background: #b8b8b8;
+    }
+  }
+  & .buttons {
+    @include flex-align;
+    justify-content: center;
+    gap: 1rem;
+    & .ArrowLeft,
+    & .ArrowRight {
+      font-size: 2rem;
+      border-radius: 4px;
+      width: 1.5rem;
+      height: 1.5rem;
+      @include flex-align;
+      justify-content: center;
+      font-weight: 500;
+      cursor: pointer;
+      background: $whiteDeg1;
+      color: $primary-color;
+      box-shadow: $shadow;
+    }
+  }
+}

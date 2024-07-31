@@ -1,0 +1,30 @@
+@import "../globals/colors";
+@import "../globals/mixins";
+
+.errorMessage {
+  @include flex-align;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgb(203, 0, 0) !important;
+  width: fit-content;
+  border-radius: 2rem;
+  background: $whiteDeg1;
+
+  & .iconError {
+    @include flex-align;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: rgb(203, 0, 0) !important;
+    color: $whiteDeg1;
+    font-size: 2rem;
+    transform: rotate(45deg);
+  }
+
+  & .message {
+    font-size: 1.2rem !important;
+    color: $black !important;
+  }
+}

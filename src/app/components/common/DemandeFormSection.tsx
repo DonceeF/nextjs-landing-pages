@@ -4,9 +4,13 @@ import InfoContact from "../home/InfoContact";
 import { IoCallOutline } from "react-icons/io5";
 import { CiMail } from "react-icons/ci";
 import CopieButton from "./CopieButton";
-import DemandeForm from "../home/DemandeForm";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 
-const DemandeFormSection = () => {
+interface Props {
+  form: React.ReactNode;
+}
+
+const DemandeFormSection = ({ form }: Props) => {
   return (
     <div className={styles.main}>
       <h3>
@@ -39,9 +43,10 @@ const DemandeFormSection = () => {
           <CopieButton background="#2bb6d5" color="#fff" />
         </div>
       </div>
-      <div className={styles.DemandeForm}>
-        <DemandeForm />
-      </div>
+
+      <ErrorBoundary fallback="Something went wrong with the demande form.">
+        <div className={styles.DemandeForm}> {form}</div>
+      </ErrorBoundary>
     </div>
   );
 };

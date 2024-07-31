@@ -1,4 +1,5 @@
 @import "../../globals/colors";
+@import "../../globals/mixins";
 
 .FormDiv {
   margin: 0rem 4rem 4rem;
@@ -12,8 +13,8 @@
 .Form {
   padding: 4rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto auto;
   gap: 20px;
   row-gap: 40px;
 }
@@ -77,17 +78,41 @@
   align-items: center;
   justify-content: center;
 }
-
 .Checkbox {
   color: $black;
   display: flex;
-  align-items: center;
   gap: 8px;
+
   & p {
     & span {
       color: $primary-color;
       cursor: pointer;
       border-bottom: 1px solid $primary-color;
+    }
+  }
+}
+
+.CheckboxesContainer {
+  color: $black;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  & label {
+    position: relative;
+    top: -0.5rem;
+  }
+
+  & .checkboxes {
+    position: relative;
+    top: 0.5rem;
+    @include flex-align;
+    justify-content: space-around;
+
+    & .inputs {
+      @include flex-align;
+      justify-content: center;
+      gap: 1rem;
     }
   }
 }

@@ -1,11 +1,17 @@
 import React from "react";
-import DemandeDemonstration from "../../components/common/DemandeDemonstration";
-import Title from "../../components/common/Title";
+import dynamic from "next/dynamic";
 import styles from "../../styles/pages/_tarification.module.scss";
-import FeatureColumn from "../../components/tarification/FeatureColumn";
 import sobrusLogo from "../../../../public/img/logo.png";
 import monOrdonnanceLogo from "../../../../public/img/mon_ordonnance_logo.png";
 import chezLeDorcteurLogo from "../../../../public/img/ChezleDocteur_logo.png";
+
+const Title = dynamic(() => import("../../components/common/Title"));
+const FeatureColumn = dynamic(
+  () => import("../../components/tarification/FeatureColumn")
+);
+const DemandeDemonstration = dynamic(
+  () => import("../../components/common/DemandeDemonstration")
+);
 
 const page = () => {
   return (

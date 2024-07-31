@@ -1,10 +1,7 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import styles from "../../styles/pages/_functionality.module.scss";
-import DemandeDemonstration from "../../components/common/DemandeDemonstration";
-import Title from "../../components/common/Title";
-import Paragraph from "@/app/components/common/Paragraph";
 import Image from "next/image";
-import Section5 from "../../components/functionality/Section5";
 import {
   functionality1,
   functionality2,
@@ -13,6 +10,32 @@ import {
   functionality5,
   functionality6,
 } from "../../../../public/img";
+
+const DemandeDemonstration = dynamic(
+  () => import("../../components/common/DemandeDemonstration"),
+  {
+    ssr: false,
+  }
+);
+const Title = dynamic(() => import("../../components/common/Title"), {
+  ssr: false,
+});
+const Paragraph = dynamic(() => import("@/app/components/common/Paragraph"), {
+  ssr: false,
+});
+const Section5 = dynamic(
+  () => import("../../components/functionality/Section5"),
+  {
+    ssr: false,
+  }
+);
+const SliderButtons = dynamic(
+  () => import("@/app/components/common/SliderButtons"),
+  {
+    ssr: false,
+  }
+);
+
 const titles = [
   {
     title: (
@@ -73,6 +96,7 @@ export default function Home() {
         <Paragraph title={titles[0].title} paragraph={titles[0].paragraph} />
         <div className={styles.image}>
           <Image src={functionality1} alt="" />
+          <SliderButtons />
           <div className={styles.cercle}></div>
         </div>
       </div>
@@ -109,6 +133,7 @@ export default function Home() {
       <div className={styles.Section6}>
         <div className={styles.image}>
           <Image src={functionality6} alt="" />
+          <SliderButtons />
           <div className={styles.secondCercle}></div>
         </div>
         <Paragraph title={titles[4].title} paragraph={titles[4].paragraph} />

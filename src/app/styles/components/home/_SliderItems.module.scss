@@ -2,42 +2,13 @@
 @import "../../../styles/globals/mixins";
 
 .main {
+  width: 70vw;
   padding: 4rem;
   position: relative;
-  border: black solid 1px;
-
-  & .items {
-    border-radius: 16px;
-    padding: 1rem;
-    border: black solid 1px;
-    margin-right: 1rem;
-
-    & p {
-      border: black solid 1px;
-      font-size: 1rem;
-    }
-
-    .user {
-      width: fit-content;
-      border: black solid 1px;
-      @include flex-align;
-      justify-content: center;
-      gap: 16px;
-
-      & img {
-        width: 4rem;
-        height: auto;
-      }
-
-      .userInfo {
-        @include flex-align;
-        flex-direction: column;
-      }
-    }
-  }
 
   & .ArrowLeft,
   & .ArrowRight {
+    position: absolute;
     font-size: 2rem;
     border-radius: 4px;
     width: 3rem;
@@ -49,5 +20,16 @@
     background: $whiteDeg1;
     color: $primary-color;
     box-shadow: $shadow;
+  }
+
+  & .ArrowLeft {
+    left: 0;
+    top: 50%;
+    bottom: 50%;
+  }
+  & .ArrowRight {
+    right: 0;
+    top: 50%;
+    bottom: 50%;
   }
 }

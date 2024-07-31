@@ -78,14 +78,14 @@
 }
 
 .main {
-  padding: 34rem 4rem 4rem;
+  padding: 4rem 4rem 4rem;
   @include flex-align;
   flex-direction: column;
   position: relative;
   justify-content: center;
   & .form {
-    position: absolute;
-    top: -10rem;
+    position: relative;
+    top: -16rem;
     border-radius: 2rem;
     padding: 3rem 2rem 2rem;
     background: $whiteDeg1;
@@ -93,6 +93,7 @@
     @include flex-align;
     justify-content: center;
     box-shadow: $shadow;
+    margin-bottom: -12rem;
 
     & .formContainer {
       width: 50vw;
@@ -186,7 +187,7 @@
 
       & .copyDiv {
         @include flex-align;
-        align-items: end;
+        align-items: flex-end;
         gap: 0.5rem;
       }
     }
@@ -202,5 +203,108 @@
 .formContainer {
   & input {
     color: black;
+  }
+}
+
+// --------------- On focus
+
+.FormInput:focus-within {
+  border: solid 1px $primary-color;
+
+  & input {
+    color: black;
+  }
+
+  & .Input {
+    color: black;
+  }
+
+  & .Icon {
+    background: #f3f7f8;
+    color: $primary-color;
+  }
+}
+
+.FormTextArea:focus-within {
+  border: $primary-color solid 2px;
+
+  & .Icon {
+    background: #f3f7f8;
+    color: $primary-color;
+  }
+
+  & .textArea {
+    border: solid 1px $primary-color;
+  }
+}
+
+// -------------- validation design
+
+.green,
+.red {
+  position: relative;
+  z-index: 1;
+}
+
+.over {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.valid {
+  z-index: 3;
+  @include flex-align;
+  justify-content: center;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  background: $whiteDeg1;
+  padding: 2rem 1rem;
+  border-radius: 8px;
+  box-shadow: $shadow;
+
+  & .validH1 {
+    color: rgb(3, 175, 3);
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  & .notValidH1 {
+    color: rgb(168, 1, 1);
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+
+  & .correct,
+  & .notCorrect {
+    @include flex-align;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+
+  & .correct {
+    border: solid 1px rgb(3, 175, 3);
+    color: rgb(3, 175, 3);
+    font-size: 2rem;
+  }
+
+  & .notCorrect {
+    border: solid 1px rgb(168, 1, 1);
+    color: rgb(168, 1, 1);
+    font-size: 2rem;
+    transform: rotate(45deg);
   }
 }

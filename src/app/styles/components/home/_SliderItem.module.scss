@@ -1,0 +1,42 @@
+@import "../../globals/colors";
+@import "../../globals/mixins";
+
+.items {
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 0.5rem 1rem;
+  box-shadow: $shadow;
+  background: $whiteDeg1;
+
+  & p {
+    font-size: 1rem;
+    text-align: start;
+  }
+
+  .user {
+    margin-top: 2rem;
+
+    @include flex-align;
+    gap: 16px;
+
+    & img {
+      width: 4rem;
+      height: auto;
+      border: 1px solid $primary-color;
+      border-radius: 50%;
+    }
+
+    .userInfo {
+      @include flex-align;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.5rem;
+
+      & h2 {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+    }
+  }
+}

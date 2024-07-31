@@ -1,13 +1,19 @@
 import React from "react";
-import DemandeDemonstration from "../../components/common/DemandeDemonstration";
-import Title from "../../components/common/Title";
-import ActualitesParts from "../../components/actualites/ActualitesParts";
+import dynamic from "next/dynamic";
+import styles from "../../styles/pages/_actualites.module.scss";
 import img1 from "../../../../public/img/actualites-img-1.png";
 import img2 from "../../../../public/img/actualites-img-2.png";
 import img3 from "../../../../public/img/actualites-img-3.png";
 import img4 from "../../../../public/img/actualites-img-4.png";
-import styles from "../../styles/pages/_actualites.module.scss";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
+
+const Title = dynamic(() => import("../../components/common/Title"));
+const DemandeDemonstration = dynamic(
+  () => import("../../components/common/DemandeDemonstration")
+);
+const ActualitesParts = dynamic(
+  () => import("../../components/actualites/ActualitesParts")
+);
 
 const page = () => {
   return (

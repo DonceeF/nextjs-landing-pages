@@ -1,6 +1,40 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import styles from "./styles/pages/_page.module.scss";
 import Image from "next/image";
+
+const ContactForm = dynamic(() => import("./components/home/ContactForm"), {
+  ssr: false,
+});
+const ErrorBoundary = dynamic(() => import("./errorBoundary/ErrorBoundary"), {
+  ssr: false,
+});
+const Paragraph = dynamic(() => import("./components/common/Paragraph"), {
+  ssr: false,
+});
+const SliderItems = dynamic(() => import("./components/home/SliderItems"), {
+  ssr: false,
+});
+const IconComponent = dynamic(() => import("./components/home/IconComponent"), {
+  ssr: false,
+});
+const DemandeDemonstration = dynamic(
+  () => import("./components/common/DemandeDemonstration"),
+  { ssr: false }
+);
+const DemandeFormSection = dynamic(
+  () => import("./components/common/DemandeFormSection"),
+  { ssr: false }
+);
+const DemandeForm = dynamic(() => import("./components/home/DemandeForm"), {
+  ssr: false,
+});
+
+import { FaFacebookSquare, FaLinkedin, FaWhatsappSquare } from "react-icons/fa";
+import { MdCall } from "react-icons/md";
+import { IoMdMail } from "react-icons/io";
+
+// ------------------- Images
 import acceuil1 from "../../public/img/acceuil-img-1.png";
 import acceuil2 from "../../public/img/acceuil-img-2.png";
 import acceuil3 from "../../public/img/acceuil-img-3.png";
@@ -16,17 +50,6 @@ import icon3 from "../../public/img/icon-acceuil-3.png";
 import icon4 from "../../public/img/icon-acceuil-4.png";
 import icon5 from "../../public/img/icon-acceuil-5.png";
 import icon6 from "../../public/img/icon-acceuil-6.png";
-import ContactForm from "./components/home/ContactForm";
-import Paragraph from "./components/common/Paragraph";
-import SliderItems from "./components/home/SliderItems";
-import IconComponent from "./components/home/IconComponent";
-import DemandeDemonstration from "./components/common/DemandeDemonstration";
-import { FaFacebookSquare } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { MdCall } from "react-icons/md";
-import { IoMdMail } from "react-icons/io";
-import { FaWhatsappSquare } from "react-icons/fa";
-import DemandeFormSection from "./components/common/DemandeFormSection";
 
 const titles = [
   {
@@ -112,17 +135,19 @@ const Home = () => {
     <div className={styles.mainContent}>
       <div className={styles.Section1}>
         <div className={styles.textPart}>
-          <h1>
+          <h2>
             Sobrus MED au service de la digitalisation des{" "}
             <span>cabinets </span>
             <span>médicaux.</span>
-          </h1>
+          </h2>
           <h5>
             La solution idéale pour gérer efficacement votre cabinet médical.
           </h5>
           <div className={styles.Form}>
             <h5>Je souhaite être contacté</h5>
-            <ContactForm />
+            <ErrorBoundary fallback="Something went wrong with the contact form.">
+              <ContactForm />
+            </ErrorBoundary>
           </div>
         </div>
         <div className={styles.imageAcceuil1}>
@@ -306,9 +331,13 @@ const Home = () => {
           <h4>Témoignages</h4>
           <h2>Ce que les médecins en pensent ?</h2>
         </div>
-        <div>{/* <SliderItems /> */}</div>
+        <div>
+          <ErrorBoundary fallback="Something went wrong with the slider.">
+            <SliderItems />
+          </ErrorBoundary>
+        </div>
       </div>
-      <DemandeFormSection />
+      <DemandeFormSection form={<DemandeForm />} />
     </div>
   );
 };

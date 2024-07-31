@@ -2,9 +2,9 @@
 import React, { useRef } from "react";
 import styles from "../../styles/components/home/_SliderItems.module.scss";
 import Slider from "react-slick";
-import Image from "next/image";
 import user from "../../../../public/img/user.png";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import SliderItem from "./SliderItem";
 
 const data_slider = [
   {
@@ -47,7 +47,7 @@ const SliderItems: React.FC = () => {
     slidesToShow: 2,
     slidesToScroll: 2,
     appendDots: (dots: React.ReactNode) => (
-      <div style={{ position: "absolute", bottom: "-30px" }}>
+      <div style={{ position: "absolute", bottom: "-3rem" }}>
         <ul style={{ margin: "0px" }}> {dots} </ul>
       </div>
     ),
@@ -72,17 +72,14 @@ const SliderItems: React.FC = () => {
 
       <Slider ref={sliderRef} {...settings}>
         {data_slider.map((item, index) => (
-          <div key={`sliderItem${index}`} className={styles.items}>
-            <p>{item.paragraph1}</p>
-            <p>{item.paragraph2}</p>
-            <div className={styles.user}>
-              <Image src={user} alt="" />
-              <div className={styles.userInfo}>
-                <h3>{item.name}</h3>
-                <h4>{item.cabinet}</h4>
-              </div>
-            </div>
-          </div>
+          <SliderItem
+            key={`sliderItem${index}`}
+            paragraph1={item.paragraph1}
+            paragraph2={item.paragraph2}
+            name={item.name}
+            cabinet={item.cabinet}
+            user={user}
+          />
         ))}
       </Slider>
     </div>

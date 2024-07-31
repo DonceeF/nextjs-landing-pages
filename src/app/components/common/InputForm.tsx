@@ -2,8 +2,7 @@ import React from "react";
 import styles from "../../styles/components/common/_InputForm.module.scss";
 import { UseFormRegister } from "react-hook-form";
 import { IconType } from "react-icons";
-import { IFormInput } from "../../components/home/DemandeForm";
-import { IFormHomeInput, IFormContactInput } from "@/app/types/common.type";
+import { IFormInput } from "../../types/common.type";
 
 interface Props {
   label: string;

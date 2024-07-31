@@ -1,14 +1,11 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import styles from "@/app/styles/pages/_nos-outils.module.scss";
-import Title from "@/app/components/common/Title";
-import DemandeFormSection from "@/app/components/common/DemandeFormSection";
 import Image from "next/image";
-import Paragraph from "@/app/components/common/Paragraph";
 import imgNosOutils1 from "../../../../public/img/nos-outils-img-1.png";
 import imgNosOutils2 from "../../../../public/img/nos-outils-img-2.png";
 import imgNosOutils3 from "../../../../public/img/nos-outils-img-3.png";
 import MonOrdonnance from "../../../../public/img/mon_ordonnance_logo.png";
-import ReasonMonOrdonnance from "@/app/components/nos-outils/ReasonMonOrdonnance";
 import icon1 from "../../../../public/img/icon-nos-outils-1.png";
 import icon2 from "../../../../public/img/icon-nos-outils-2.png";
 import icon3 from "../../../../public/img/icon-nos-outils-3.png";
@@ -16,6 +13,21 @@ import icon4 from "../../../../public/img/icon-nos-outils-4.png";
 import icon5 from "../../../../public/img/icon-nos-outils-5.png";
 import icon6 from "../../../../public/img/icon-nos-outils-6.png";
 import icon7 from "../../../../public/img/icon-nos-outils-7.png";
+
+const Title = dynamic(() => import("@/app/components/common/Title"));
+const DemandeFormSection = dynamic(
+  () => import("@/app/components/common/DemandeFormSection")
+);
+const Paragraph = dynamic(() => import("@/app/components/common/Paragraph"));
+const ReasonMonOrdonnance = dynamic(
+  () => import("@/app/components/nos-outils/ReasonMonOrdonnance")
+);
+const FormNosOutils = dynamic(
+  () => import("@/app/components/nos-outils/FormNosOutils")
+);
+const SliderButtons = dynamic(
+  () => import("@/app/components/common/SliderButtons")
+);
 
 const titles = [
   {
@@ -88,6 +100,7 @@ const page = () => {
         <div className={styles.definitionMonSite}>
           <div className={styles.image}>
             <Image src={imgNosOutils3} alt="MonSiteSobrus image" />
+            <SliderButtons />
             <div className={styles.bigRec}></div>
           </div>
           <Paragraph title={titles[1].title} paragraph={titles[1].paragraph} />
@@ -111,7 +124,7 @@ const page = () => {
           </div>
         </div>
       </div>
-      <DemandeFormSection />
+      <DemandeFormSection form={<FormNosOutils />} />
     </>
   );
 };
