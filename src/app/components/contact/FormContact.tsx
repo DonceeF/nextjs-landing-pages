@@ -9,6 +9,7 @@ import styles from "@/app/styles/pages/_contact.module.scss";
 import axios from "axios";
 import { MdDone } from "react-icons/md";
 import { BsPlusLg } from "react-icons/bs";
+import { useServiceWorker } from "../../hooks/useServiceWorker";
 
 enum Specialite {
   MEDECINE = "Médecine",
@@ -23,42 +24,67 @@ interface FormInput {
   firstName: string;
   message: string;
 }
+interface ApiResponse {
+  message: string;
+}
 
 const FormContact = () => {
-  const [response, setResponse] = useState(null);
+  const [response, setResponse] = useState<ApiResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showResponse, setShowResponse] = useState(false);
   const [showError, setShowError] = useState(false);
 
+  useServiceWorker();
+
   const { register, handleSubmit, reset } = useForm<FormInput>();
 
   const onSubmit: SubmitHandler<FormInput> = async (data) => {
-    try {
-      const res = await axios.post(
-        "https://api.sobrus.ovh/api/med/contact-request",
-        data
-      );
+    if (navigator.onLine) {
+      try {
+        const res = await axios.post(
+          "https://api.sobrus.ovh/api/med/contact-request",
+          data
+        );
 
-      console.log(res.data);
-      setResponse(res.data);
+        console.log(res.data);
+        setResponse(res.data);
+        setShowResponse(true);
+        setShowError(false);
+        setTimeout(() => {
+          setShowResponse(false);
+        }, 3000);
+      } catch (err) {
+        if (axios.isAxiosError(err)) {
+          setError(err.message);
+        } else {
+          setError("An unexpected error occurred");
+        }
+        setShowError(true);
+        setShowResponse(false);
+        setTimeout(() => {
+          setShowError(false);
+        }, 3000);
+      } finally {
+        reset();
+      }
+    } else {
+      // Cache the POST request if offline
+      const cache = await caches.open("post-requests");
+      const url = "https://api.sobrus.ovh/api/med/contact-request";
+      const response = new Response(JSON.stringify(data), {
+        headers: { "Content-Type": "application/json" },
+      });
+
+      await cache.put(url, response);
+
+      setResponse({
+        message: "Request cached and will be sent when online",
+      });
       setShowResponse(true);
       setShowError(false);
       setTimeout(() => {
         setShowResponse(false);
       }, 3000);
-    } catch (err) {
-      if (axios.isAxiosError(err)) {
-        setError(err.message);
-      } else {
-        setError("An unexpected error occurred");
-      }
-      setShowError(true);
-      setShowResponse(false);
-      setTimeout(() => {
-        setShowError(false);
-      }, 3000);
-    } finally {
-      reset();
     }
   };
 
